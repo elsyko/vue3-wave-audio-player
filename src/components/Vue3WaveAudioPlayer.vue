@@ -940,7 +940,7 @@ export default {
     }
     #play svg:hover {
         transform: scale(1.2);
-        fill: #673AB7;
+        fill: #B152FF;
     }
     #play svg path {
         stroke-linecap: round;
@@ -960,7 +960,7 @@ export default {
         stroke-linecap: round;
     }
     #path2 {
-        stroke: #673AB7;
+        stroke: #B152FF;
         overflow: visible;
         stroke-linecap: round;
     }
@@ -971,7 +971,7 @@ export default {
         position: relative;
         top:-1.1px;
         color: #858a8d;
-        margin: 0px 10px;
+        margin: 0 0 0 10px;
         font-size: 16px;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         min-width:32px;
