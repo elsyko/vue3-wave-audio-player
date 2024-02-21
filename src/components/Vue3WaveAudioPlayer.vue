@@ -3,9 +3,9 @@
         <button id="play" part="play" ref="play"
         v-if="loading_audio_data"
         >
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-            style="margin: auto; background: rgba(255, 255, 255, 0); display: block; shape-rendering: auto;" 
-            width="34px" height="34px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" 
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            style="margin: auto; background: rgba(255, 255, 255, 0); display: block; shape-rendering: auto;"
+            width="34px" height="34px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"
             >
                 <circle cx="50" cy="50" fill="none" stroke="#858a8d" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138">
                 <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
@@ -15,15 +15,15 @@
         <button id="play" part="play" ref="play"
         v-else @click="playPause"
         >
-            <svg viewBox="0 0 34 34" width="34" height="34" part="button" ref="button" 
+            <svg viewBox="0 0 34 34" width="34" height="34" part="button" ref="button"
             >
-                <path 
-                id="playPathButton" 
+                <path
+                id="playPathButton"
                 :d="audio_paused ? playPath : pausePath"
                 ></path>
             </svg>
         </button>
-        <div id="current-time" part="currenttime" ref="currenttime">{{ currentTimeContainer_textContent }}</div>
+        <!-- <div id="current-time" part="currenttime" ref="currenttime">{{ currentTimeContainer_textContent }}</div> -->
         <div id="slider" part="slider" ref="slider">
             <svg
                 id="svg"
@@ -37,41 +37,41 @@
                 <!-- <template v-if="animation"> -->
                     <defs>
                         <clipPath :id="clipPathX">
-                            <rect 
-                            x="-1" y="-100" 
-                            :width="wave_width + 2" 
+                            <rect
+                            x="-1" y="-100"
+                            :width="wave_width + 2"
                             :height="wave_height + 200"
                             >
-                                <animate 
-                                id="animationsvgx" 
-                                ref="animationsvgx" 
-                                attributeName="x" 
-                                :values="'-1;' + (wave_width + 2)" 
-                                :dur="animationsvgx_dur" 
+                                <animate
+                                id="animationsvgx"
+                                ref="animationsvgx"
+                                attributeName="x"
+                                :values="'-1;' + (wave_width + 2)"
+                                :dur="animationsvgx_dur"
                                 fill="freeze" />
                             </rect>
                         </clipPath>
                         <clipPath :id="clipPathA">
-                            <rect 
-                            :x="-1*(wave_width + 2)" y="-100" 
-                            :width="wave_width + 2" 
+                            <rect
+                            :x="-1*(wave_width + 2)" y="-100"
+                            :width="wave_width + 2"
                             :height="wave_height + 200"
                             >
                             >
-                                <animate 
-                                id="animationsvg" 
-                                ref="animationsvg" 
-                                attributeName="x" 
+                                <animate
+                                id="animationsvg"
+                                ref="animationsvg"
+                                attributeName="x"
                                 :values="animationsvg_val"
-                                :dur="animationsvg_dur" 
-                                fill="freeze" 
+                                :dur="animationsvg_dur"
+                                fill="freeze"
                                 />
                             </rect>
                         </clipPath>
                     </defs>
                     <path id="path1" ref="path1" stroke-width="2" :d="path1_d" :clip-path="'url(#'+clipPathX+')'"></path>
-                    <path 
-                    id="path2" ref="path2" stroke-width="2" :d="path2_d" :clip-path="'url(#'+clipPathA+')'" 
+                    <path
+                    id="path2" ref="path2" stroke-width="2" :d="path2_d" :clip-path="'url(#'+clipPathA+')'"
                     :style="{display: path2_display}"
                     ></path>
                 <!-- </template> -->
@@ -79,21 +79,21 @@
                     <!-- <path id="path1" ref="path1" stroke-width="2" style="display: none;"
                     :d="path1_d"
                     ></path>
-                    <path 
-                    id="path2" ref="path2" stroke-width="2" 
+                    <path
+                    id="path2" ref="path2" stroke-width="2"
                     :style="{display: path2_display}"
                     :d="path2_d"
                     >
-                        <animate 
-                        id="animationsvg" ref="animationsvg" attributeName="d" 
-                        :dur="animationsvg_dur" 
-                        calcMode="linear" 
-                        :values="animationsvg_val" 
+                        <animate
+                        id="animationsvg" ref="animationsvg" attributeName="d"
+                        :dur="animationsvg_dur"
+                        calcMode="linear"
+                        :values="animationsvg_val"
                         fill="freeze"></animate>
                     </path> -->
                 <!-- </template> -->
             </svg>
-            <input type="range" part="input" id="seek-slider" max="100" value="0" step="any" 
+            <input type="range" part="input" id="seek-slider" max="100" value="0" step="any"
             :style="{
               height: (wave_height + 'px')
             }"
@@ -104,9 +104,9 @@
         <div id="duration" part="duration">{{ durationContainer_textContent }}</div>
     </div>
 
-    <!-- 
+    <!--
         <audio :src="src" ref="audio_tag"
-        @loadedmetadata="loadSong" 
+        @loadedmetadata="loadSong"
     -->
     <audio ref="audio_tag"
     @ended="onFinish"
@@ -165,10 +165,10 @@ export default {
     wave_width: {
       type: Number,
       default: 200
-    }, 
+    },
     src: {
       type: String
-    }, 
+    },
     wave_height: {
       type: Number,
       default: 40
@@ -197,14 +197,14 @@ export default {
   data () {
     return {
       animation: false,
-      player_options: { 
-          samples: 40,  
-          type: null, 
-          width: null, 
+      player_options: {
+          samples: 40,
+          type: null,
+          width: null,
           height: null,
           paths: [
               {d:'V', sy: 0, x:50, ey:100 }
-          ], 
+          ],
           channel: 0,
           top: 0,
           left: 0,
@@ -250,11 +250,11 @@ export default {
   },
   beforeMount () {
 
-    //- setting up the options 
+    //- setting up the options
     this.player_options.width = this.wave_width
     this.player_options.height = this.wave_height
     this.player_options.type = this.wave_type
-    if(this.wave_options) 
+    if(this.wave_options)
     {
       if(this.wave_options.samples)
       {
@@ -269,7 +269,7 @@ export default {
         this.player_options.height = this.wave_options.height
       }
     }
-    if(this.wave_animation) 
+    if(this.wave_animation)
     {
       this.animation = this.wave_animation
     }
@@ -295,17 +295,17 @@ export default {
 
     this.svg.pauseAnimations()
     this.animationsvg_val = '-'+ (this.wave_width + 2) +';-1'
-    
+
     if(this.load_audio_onmount)
         this.runAudioPath()
   },
   methods: {
     loadSong ($event) { // done
-        this.durationContainer_textContent = this.calculateTime(this.audio.duration)
+        this.durationContainer_textContent = this.calculateTime(this.audio.duration - this.seekSlider.value)
         this.seekSlider.max = this.audio.duration
         this.svg.unpauseAnimations()
         this.animationsvg_dur = this.audio.duration +"s"
-        if(!this.animation) 
+        if(!this.animation)
         {
             this.animationsvgx_dur = this.audio.duration +"s"
         }
@@ -313,19 +313,19 @@ export default {
         this.svg.setCurrentTime(0)
         this.$emit('on_loadedmetadata', $event)
     },
-    playPause () { 
+    playPause () {
         if(!this.load_audio_onmount && !this.loaded_audio_data) {
             return this.runAudioPath()
         }
-        if(this.audio.paused) 
+        if(this.audio.paused)
         {
             this.audio.play();
             this.svg.unpauseAnimations();
             this.path2.style.display = "block";
-            this.audio_paused = false 
+            this.audio_paused = false
             this.raf = requestAnimationFrame(this.whilePlaying);
-        } 
-        else 
+        }
+        else
         {
             this.audio.pause();
             this.svg.pauseAnimations();
@@ -341,7 +341,7 @@ export default {
             cancelAnimationFrame(this.raf);
         }
     },
-    sliderChange () { //done 
+    sliderChange () { //done
         if(this.disable_seeking) {
             this.whilePlaying()
             return this.$emit('tried_to_seek', false)
@@ -350,8 +350,8 @@ export default {
         this.audio.currentTime = this.seekSlider.value;
         this.path2_display = "block";
         this.svg.setCurrentTime(this.seekSlider.value);
-        
-        if(!this.audio.paused) 
+
+        if(!this.audio.paused)
         {
             this.raf = requestAnimationFrame(this.whilePlaying);
         }
@@ -361,7 +361,7 @@ export default {
         this.svg.setCurrentTime(this.audio.duration);
         this.svg.pauseAnimations();
         // this.playPathButton.setAttribute("d", this.playPath);
-        this.audio_paused = true 
+        this.audio_paused = true
         cancelAnimationFrame(this.raf);
         this.$emit('on_ended', $event)
     },
@@ -373,7 +373,7 @@ export default {
         this.raf = requestAnimationFrame(this.whilePlaying);
     },
     async runAudioPath() {
-        // this.audioData = 
+        // this.audioData =
         await this.getAudioData(this.src);
         // this.loadSong()
         // this.svgDraw();
@@ -381,12 +381,12 @@ export default {
     svgDraw () {
         const path = this.linearPath(this.audioData, this.player_options);
         // console.log(path)
-        if(!this.animation) 
+        if(!this.animation)
         {
             this.path1_d = path
             this.path2_d = path
-        } 
-        else 
+        }
+        else
         {
             this.animationsvg.setAttribute('values', path)
         }
@@ -422,26 +422,26 @@ export default {
         })
         .then(bl => {
             this.waiting_to_load = false
-            let src = URL.createObjectURL(bl) 
-            this.audio.src = src 
+            let src = URL.createObjectURL(bl)
+            this.audio.src = src
             let fileReader = new FileReader()
             fileReader.onloadend = () => {
                 this.audioContext.decodeAudioData(
-                    fileReader.result, 
+                    fileReader.result,
                     (bufferData) => {
                         this.audioData = bufferData
                         setTimeout(() => {
                             this.loading_audio_data = false
                             this.loaded_audio_data = true
                             this.loadSong()
-                            this.svgDraw()    
+                            this.svgDraw()
                         }, 1000)
                     },
                     (err) => {
                         this.loading_audio_data = false
                         this.$emit('on_error', err)
                     }
-                )                
+                )
             }
             fileReader.readAsArrayBuffer(bl)
         })
@@ -451,7 +451,7 @@ export default {
         })
     },
     linearPath (audioBuffer, options) {
-        const { 
+        const {
             channel = 0,
             samples = audioBuffer.length,
             height = 100,
@@ -470,7 +470,7 @@ export default {
         const normalizeData = (normalize ? this.getNormalizeData(filteredData) : filteredData);
 
         let path = ``;
-        
+
 
         const fixHeight = (type != 'bars' ?  (height+top*2) / 2 : height+top);
         const fixWidth = width / samples;
@@ -489,10 +489,10 @@ export default {
                     path += ';';
                 }
             }
-            
+
             let last_pos_x = -9999;
             let last_pos_y = -9999;
-            
+
             for (let i = 0; i < samples; i++) {
 
                 const positive =  (type != 'bars' ? (i % 2 ? 1: -1) : 1);
@@ -501,7 +501,7 @@ export default {
                     let k = j;
                     if(j >= pathslength) {
                         k = j - pathslength;
-                        mirror = -1;   
+                        mirror = -1;
                     }
                     paths[k].minshow = paths[k].minshow ?? 0;
                     paths[k].maxshow = paths[k].maxshow ?? 1;
@@ -518,14 +518,14 @@ export default {
                                 const end_pos_x = (i*fixWidth) + (fixWidth*paths[k].ex/100) + left;
                                 const end_pos_y = fixHeight + (normalizeDataValue * paths[k].ey / 100 * (type != 'bars' ? height/2 : height) * -positive*mirror);
 
-                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {   
+                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {
                                     path += `M ${pos_x} ${pos_y} `;
                                 }
 
-                                path += `L ${end_pos_x} ${end_pos_y} `; 
-                                
+                                path += `L ${end_pos_x} ${end_pos_y} `;
+
                                 last_pos_x = end_pos_x;
-                                last_pos_y = end_pos_y;                             
+                                last_pos_y = end_pos_y;
                                 break;
                             }
 
@@ -537,29 +537,29 @@ export default {
                                 const end_pos_x = (i*fixWidth) + (fixWidth*paths[k].ex/100) + left;
                                 const end_pos_y = pos_y;
 
-                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {   
+                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {
                                     path += `M ${pos_x} ${pos_y} `;
                                 }
 
-                                path += `H ${end_pos_x} `; 
-                                
+                                path += `H ${end_pos_x} `;
+
                                 last_pos_x = end_pos_x;
-                                last_pos_y = end_pos_y;                             
+                                last_pos_y = end_pos_y;
                                 break;
                             }
-                            
+
                             case 'V': {
                                 const pos_x = (i * fixWidth)  + (fixWidth*paths[k].x/100) + left;
                                 const pos_y = fixHeight + (normalizeDataValue * paths[k].sy / 100 * (type != 'bars' ? height/2 : height) * -positive*mirror);
-                                
+
                                 const end_pos_x = pos_x;
                                 const end_pos_y = fixHeight + (normalizeDataValue * paths[k].ey / 100 * (type != 'bars' ? height/2 : height) * -positive*mirror);
-                                
-                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {   
+
+                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {
                                     path += `M ${pos_x} ${pos_y} `;
                                 }
-                                
-                                path += `V ${end_pos_y} `; 
+
+                                path += `V ${end_pos_y} `;
 
                                 last_pos_x = end_pos_x;
                                 last_pos_y = end_pos_y;
@@ -570,7 +570,7 @@ export default {
                             case 'C': {
                                 const pos_x = (i * fixWidth)  + (fixWidth*paths[k].sx/100) + left;
                                 const pos_y = fixHeight  - (fixHeight*paths[k].sy/100)*positive;
-                                
+
                                 const center_pos_x = (i * fixWidth)  + (fixWidth*paths[k].x/100) + left;
                                 const center_pos_y = fixHeight + (normalizeDataValue * paths[k].y / 100 * (type != 'bars' ? height : height*2) * -positive*mirror);
 
@@ -578,11 +578,11 @@ export default {
                                 const end_pos_x = (i*fixWidth) + (fixWidth*paths[k].ex/100) + left;
                                 const end_pos_y = fixHeight - (fixHeight*paths[k].ey/100)*positive;
 
-                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {   
+                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {
                                     path += `M ${pos_x} ${pos_y} `;
                                 }
 
-                                path += `C ${pos_x} ${pos_y} ${center_pos_x} ${center_pos_y} ${end_pos_x} ${end_pos_y} `; 
+                                path += `C ${pos_x} ${pos_y} ${center_pos_x} ${center_pos_y} ${end_pos_x} ${end_pos_y} `;
 
                                 last_pos_x = end_pos_x;
                                 last_pos_y = end_pos_y;
@@ -601,14 +601,14 @@ export default {
                                 const end_pos_x = (i*fixWidth) + (fixWidth*paths[k].ex/100) + left;
                                 const end_pos_y = fixHeight + (normalizeDataValue * paths[k].ey / 100 * (type != 'bars' ? height/2 : height) * -positive*mirror);
 
-                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {   
+                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {
                                     path += `M ${pos_x} ${pos_y} `;
                                 }
 
-                                path += `Q ${center_pos_x} ${center_pos_y} ${end_pos_x} ${end_pos_y} `; 
-                                
+                                path += `Q ${center_pos_x} ${center_pos_y} ${end_pos_x} ${end_pos_y} `;
+
                                 last_pos_x = end_pos_x;
-                                last_pos_y = end_pos_y;                             
+                                last_pos_y = end_pos_y;
                                 break;
                             }
 
@@ -621,7 +621,7 @@ export default {
                                 const end_pos_x = (i*fixWidth) + (fixWidth*paths[k].ex/100) + left;
                                 const end_pos_y = fixHeight + (normalizeDataValue * paths[k].ey / 100 * (type != 'bars' ? height/2 : height) * -positive*mirror);
 
-                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {   
+                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {
                                     path += `M ${pos_x} ${pos_y} `;
                                 }
                                 const rx = paths[k].rx * fixWidth/100;
@@ -641,29 +641,29 @@ export default {
                                         sweep = 1;
                                     }
                                 }
-                                path += `A ${rx} ${ry} ${paths[k].angle} ${paths[k].arc} ${sweep} ${end_pos_x} ${end_pos_y} `; 
-                                
+                                path += `A ${rx} ${ry} ${paths[k].angle} ${paths[k].arc} ${sweep} ${end_pos_x} ${end_pos_y} `;
+
                                 last_pos_x = end_pos_x;
-                                last_pos_y = end_pos_y;                             
+                                last_pos_y = end_pos_y;
                                 break;
                             }
 
                             // ClosePath Commands
-                            case 'Z': 
-                                path += 'Z ';    
+                            case 'Z':
+                                path += 'Z ';
                                 break;
 
                             default:
                                 break;
                         }
                     }
-                }       
+                }
             }
         }
         return path;
     },
     polarPath (audioBuffer, options) {
-        const { 
+        const {
             channel = 0,
             samples = audioBuffer.length,
             distance = 50,
@@ -680,7 +680,7 @@ export default {
             animationframes = 10,
             normalize = true,
             } = options;
-        
+
         const framesData = this.getFramesData(audioBuffer, channel, animation, animationframes);
         const filteredData = this.getFilterData(framesData, samples);
         const normalizeData = (normalize ? this.getNormalizeData(filteredData) : filteredData);
@@ -705,11 +705,11 @@ export default {
                 } else {
                     path += ';';
                 }
-            }       
+            }
 
             let last_pos_x = -9999;
             let last_pos_y = -9999;
-            
+
             for (let i = 0; i < samples; i++) {
                 const positive =  (type != 'bars' ? (i % 2 ? 1: -1) : 1);
                 let mirror = 1;
@@ -717,7 +717,7 @@ export default {
                     let k = j;
                     if(j >= pathslength) {
                         k = j - pathslength;
-                        mirror = -1;   
+                        mirror = -1;
                     }
                     paths[k].minshow = paths[k].minshow ?? 0;
                     paths[k].maxshow = paths[k].maxshow ?? 1;
@@ -736,14 +736,14 @@ export default {
                                 const end_pos_x = left + ((length*(paths[k].er/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.cos(angleEnd);
                                 const end_pos_y = top + ((length*(paths[k].er/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.sin(angleEnd);
 
-                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {   
+                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {
                                     path += `M ${pos_x} ${pos_y} `;
                                 }
 
-                                path += `L ${end_pos_x} ${end_pos_y} `; 
-                                
+                                path += `L ${end_pos_x} ${end_pos_y} `;
+
                                 last_pos_x = end_pos_x;
-                                last_pos_y = end_pos_y;                             
+                                last_pos_y = end_pos_y;
                                 break;
                             }
 
@@ -756,18 +756,18 @@ export default {
 
                                 const pos_x = left + ((length*(paths[k].sr/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.cos(angleStart);
                                 const pos_y = top + ((length*(paths[k].sr/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.sin(angleStart);
-                                
+
                                 const center_pos_x = left + ((length*(paths[k].r/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.cos(angle);
                                 const center_pos_y = top + ((length*(paths[k].r/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.sin(angle);
 
                                 const end_pos_x = left + ((length*(paths[k].er/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.cos(angleEnd);
                                 const end_pos_y = top + ((length*(paths[k].er/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.sin(angleEnd);
 
-                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {   
+                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {
                                     path += `M ${pos_x} ${pos_y} `;
                                 }
 
-                                path += `C ${pos_x} ${pos_y} ${center_pos_x} ${center_pos_y} ${end_pos_x} ${end_pos_y} `; 
+                                path += `C ${pos_x} ${pos_y} ${center_pos_x} ${center_pos_y} ${end_pos_x} ${end_pos_y} `;
 
                                 last_pos_x = end_pos_x;
                                 last_pos_y = end_pos_y;
@@ -782,7 +782,7 @@ export default {
 
                                 const pos_x = left + ((length*(paths[k].sr/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.cos(angleStart);
                                 const pos_y = top + ((length*(paths[k].sr/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.sin(angleStart);
-                                
+
                                 const center_pos_x = left + ((length*(paths[k].r/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.cos(angle);
                                 const center_pos_y = top + ((length*(paths[k].r/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.sin(angle);
 
@@ -790,14 +790,14 @@ export default {
                                 const end_pos_y = top + ((length*(paths[k].er/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.sin(angleEnd);
 
 
-                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {   
+                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {
                                     path += `M ${pos_x} ${pos_y} `;
                                 }
 
-                                path += `Q ${center_pos_x} ${center_pos_y} ${end_pos_x} ${end_pos_y} `; 
-                                
+                                path += `Q ${center_pos_x} ${center_pos_y} ${end_pos_x} ${end_pos_y} `;
+
                                 last_pos_x = end_pos_x;
-                                last_pos_y = end_pos_y;                             
+                                last_pos_y = end_pos_y;
                                 break;
                             }
 
@@ -812,7 +812,7 @@ export default {
                                 const end_pos_x = left + ((length*(paths[k].er/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.cos(angleEnd);
                                 const end_pos_y = top + ((length*(paths[k].er/100)*normalizeDataValue)* positive*mirror*invert + distance) * Math.sin(angleEnd);
 
-                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {   
+                                if(pos_x !== last_pos_x || pos_y !== last_pos_y) {
                                     path += `M ${pos_x} ${pos_y} `;
                                 }
 
@@ -835,30 +835,30 @@ export default {
                                         sweep = 1;
                                     }
                                 }
-                                path += `A ${rx} ${ry} ${angle} ${paths[k].arc} ${sweep} ${end_pos_x} ${end_pos_y} `; 
-                                
+                                path += `A ${rx} ${ry} ${angle} ${paths[k].arc} ${sweep} ${end_pos_x} ${end_pos_y} `;
+
                                 last_pos_x = end_pos_x;
-                                last_pos_y = end_pos_y;                             
+                                last_pos_y = end_pos_y;
                                 break;
                             }
 
                             // ClosePath Commands
-                            case 'Z': 
-                                path += 'Z ';    
+                            case 'Z':
+                                path += 'Z ';
                                 break;
 
                             default:
                                 break;
                         }
                     }
-                }       
+                }
             }
         }
         return path;
     },
     getFramesData (audioBuffer, channel, animation, animationframes) {
         const rawData = audioBuffer.getChannelData(channel);
-        
+
         const framesData = [];
         if(animation) {
             const frames = audioBuffer.sampleRate / animationframes;
@@ -888,7 +888,7 @@ export default {
             }
             filteredData.push(filteredDataBlock);
         }
-        return filteredData;   
+        return filteredData;
     },
     getNormalizeData (filteredData) {
         const multipliers = [];
@@ -910,13 +910,13 @@ export default {
 }
 </script>
 <style scoped >
-    *, :after, :before { 
+    *, :after, :before {
         box-sizing: border-box;
         margin: 0;
     }
     :host {
         display: flex;
-        
+
     }
     .player {
         display: flex;
@@ -927,9 +927,9 @@ export default {
         background: transparent;
         border: none;
         cursor:pointer;
-        padding: 0 0 0 10px;
+        /* padding: 0 0 0 10px; */
         margin: 0px;
-        
+
     }
     #play svg {
         fill: #858a8d;
@@ -952,7 +952,7 @@ export default {
         fill: none;
     }
     #path1 {
-        stroke: #dadcdd; 
+        stroke: #dadcdd;
         overflow: visible;
         stroke-linecap: round;
     }
@@ -979,31 +979,31 @@ export default {
         left: 0;
     }
     input[type=range] {
-        -webkit-appearance: none; 
-        width: 100%; 
-        background: transparent; 
+        -webkit-appearance: none;
+        width: 100%;
+        background: transparent;
         padding: 0px;
         margin: 0px;
         border: 0px;
-    }  
+    }
     input[type=range]::-webkit-slider-thumb {
         -webkit-appearance: none;
     }
     input[type=range]:focus {
-        outline: none; 
+        outline: none;
     }
 
     input[type=range]::-ms-track {
         width: 100%;
         cursor: pointer;
         /* Hides the slider so custom styles can be added */
-        background: transparent; 
+        background: transparent;
         border-color: transparent;
         color: transparent;
     }
     input[type=range]::-webkit-slider-thumb {
         -webkit-appearance: none;
-        position:relative; 
+        position:relative;
         /*top: -1.5px;*/
         height: 12.5px;
         width: 12.5px;
@@ -1030,7 +1030,7 @@ export default {
 
     input[type="range"]:active::-moz-range-thumb {
         transform: scale(1.5);
-    }  
+    }
     span {
         color: red;
     }
