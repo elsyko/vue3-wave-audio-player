@@ -94,9 +94,6 @@
                 <!-- </template> -->
             </svg>
             <input type="range" part="input" id="seek-slider" max="100" value="0" step="any"
-            :style="{
-              height: (wave_height + 'px')
-            }"
             @input="sliderInput"
             @change="sliderChange"
             />
