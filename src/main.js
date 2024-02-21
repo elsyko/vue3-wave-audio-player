@@ -5,6 +5,6 @@ Vue3WaveAudioPlayer.install = (Vue) => {
 }
 
 export default Vue3WaveAudioPlayer
-// import { createApp } from "vue"
-// import App from "./App.vue"
-// createApp(App).mount("#app")
+/* import { createApp } from "vue" // DEV ONLY
+import App from "./App.vue" // DEV ONLY
+createApp(App).mount("#app") // DEV ONLY */

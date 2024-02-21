@@ -301,7 +301,7 @@ export default {
   },
   methods: {
     loadSong ($event) { // done
-        this.durationContainer_textContent = this.calculateTime(this.audio.duration - this.seekSlider.value)
+        this.durationContainer_textContent = this.calculateTime(this.audio.duration)
         this.seekSlider.max = this.audio.duration
         this.svg.unpauseAnimations()
         this.animationsvg_dur = this.audio.duration +"s"
@@ -369,6 +369,7 @@ export default {
         // console.log('Log animation running')
         this.seekSlider.value = this.audio.currentTime;
         this.currentTimeContainer_textContent = this.calculateTime(this.seekSlider.value);
+        this.durationContainer_textContent = this.calculateTime(this.audio.duration - this.seekSlider.value)
         this.svg.setCurrentTime(this.seekSlider.value);
         this.raf = requestAnimationFrame(this.whilePlaying);
     },
@@ -939,6 +940,7 @@ export default {
     }
     #play svg:hover {
         transform: scale(1.2);
+        fill: #673AB7;
     }
     #play svg path {
         stroke-linecap: round;
@@ -957,7 +959,7 @@ export default {
         stroke-linecap: round;
     }
     #path2 {
-        stroke: #858a8d;
+        stroke: #673AB7;
         overflow: visible;
         stroke-linecap: round;
     }
@@ -1008,7 +1010,7 @@ export default {
         height: 12.5px;
         width: 12.5px;
         border-radius: 50%;
-        background: #4fc3f7;
+        background: #fff;
         cursor: pointer;
         box-shadow: none;
     }
@@ -1022,7 +1024,7 @@ export default {
         height: 12.5px;
         width: 12.5px;
         border-radius: 50%;
-        background: #4fc3f7;
+        background: #fff;
         cursor: pointer;
         box-shadow: none;
         border: 0px;
